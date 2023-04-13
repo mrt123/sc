@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/sc1-team-bal/static/css/main.795f1886.css",
-    "main.js": "/sc1-team-bal/static/js/main.62e9217f.js",
-    "index.html": "/sc1-team-bal/index.html",
-    "main.795f1886.css.map": "/sc1-team-bal/static/css/main.795f1886.css.map",
-    "main.62e9217f.js.map": "/sc1-team-bal/static/js/main.62e9217f.js.map"
+    "main.css": "/sc/static/css/main.795f1886.css",
+    "main.js": "/sc/static/js/main.62e9217f.js",
+    "index.html": "/sc/index.html",
+    "main.795f1886.css.map": "/sc/static/css/main.795f1886.css.map",
+    "main.62e9217f.js.map": "/sc/static/js/main.62e9217f.js.map"
   },
   "entrypoints": [
     "static/css/main.795f1886.css",
