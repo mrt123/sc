@@ -27,7 +27,13 @@ const fetchTeams = async (
 ) => {
   const signal = controller.signal;
   // await new Promise((resolve) => setTimeout(resolve, 500));
-  return fetch("http://localhost:3000/sc-chat/balanced-teams", {
+
+  const fetchUrl =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3005/sc-chat/balanced-teams"
+      : "https://odd-rose-kangaroo-belt.cyclic.app/sc-chat/balanced-teams";
+
+  return fetch(fetchUrl, {
     method: "post",
     signal,
     mode: "cors",
