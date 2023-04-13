@@ -2,10 +2,10 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import HomePage from "./pages/HomePage";
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import Page from "./pageStructure/Page";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <Page />,
