@@ -64,7 +64,7 @@ const PlayerForm = ({ onChange }: Props) => {
         size="small"
         required
         style={{
-          width: 100,
+          width: 170,
         }}
       />
       <TextField
@@ -77,7 +77,7 @@ const PlayerForm = ({ onChange }: Props) => {
         size="small"
         required
         style={{
-          width: 100,
+          width: 180,
         }}
       />
     </Box>
