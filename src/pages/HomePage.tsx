@@ -1,11 +1,12 @@
 import { useState } from "react";
 import PlayerForm, { PlayerFormStats } from "../sc/PlayerForm";
-import { TextField } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import PlayerCountWarning from "../sc/PlayerCountWarning";
 import useFetchTeams from "./useFetchTeams";
 import LinearProgressLoader from "../common/LinearProgressLoader";
 import TeamBalanceResult from "../sc/TeamBalanceResult";
 import { getPlayerChatEntry } from "../sc/scChatExtraction";
+import BugReportIcon from "@mui/icons-material/BugReport";
 
 function HomePage() {
   const [chatContents, setChatContents] = useState("");
@@ -49,6 +50,17 @@ function HomePage() {
       />
       <TeamBalanceResult show={!isLoading} teamsData={teamsData?.teams} />
       <LinearProgressLoader show={isLoading} />
+      <div style={{ display: "flex", justifyContent: "end" }}>
+        <Button
+          variant="text"
+          size="small"
+          href="https://github.com/mrt123/sc/issues"
+          target="_blank"
+          endIcon={<BugReportIcon />}
+        >
+          report issue
+        </Button>
+      </div>
     </div>
   );
 }
