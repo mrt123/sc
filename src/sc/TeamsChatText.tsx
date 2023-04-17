@@ -12,7 +12,7 @@ interface TeamsTextProps {
 const getTeamText = (team: PlayerStats[]) => {
   const nameTextLimit = 8; // total chat limit in sc is 119 chars
   const playerNames = team.map((p) => p.playerName.substring(0, nameTextLimit));
-  const playerNamesText = playerNames.join(", ");
+  const playerNamesText = playerNames.join(" ");
   return playerNamesText;
 };
 
