@@ -23,8 +23,15 @@ const isFormComplete = (stats: PlayerFormStats) => {
   return name && wins && losses;
 };
 
+const reportDelayedEvent = (formData: PlayerFormStats): number => {
+  return window.setTimeout(() => {
+    window.gtag("event", "user_completed_host_player_form", { formData });
+  }, 2000);
+};
+
 const PlayerForm = ({ onChange }: Props) => {
   const [state, setState] = useState(initialState);
+  const [debounceTimeout, setDebounceTimeout] = useState(0);
 
   const updateFormState: ChangeEventHandler<
     HTMLInputElement | HTMLTextAreaElement
@@ -37,12 +44,11 @@ const PlayerForm = ({ onChange }: Props) => {
       losses: newState.losses ? Number(newState.losses) : null,
     };
 
-    if (isFormComplete(onChangeValueToPropagate))
-      window.gtag(
-        "event",
-        "user_completed_host_player_form",
-        onChangeValueToPropagate
-      );
+    if (isFormComplete(onChangeValueToPropagate)) {
+      clearTimeout(debounceTimeout);
+      const timeoutId = reportDelayedEvent(onChangeValueToPropagate);
+      setDebounceTimeout(timeoutId);
+    }
 
     onChange(onChangeValueToPropagate);
   };

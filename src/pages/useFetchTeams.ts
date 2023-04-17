@@ -66,7 +66,15 @@ const useFetchTeams = ({
           hostPlayerName,
           abortController
         );
-        setData(await response.json());
+
+        const data = await response.json();
+
+        // this line won't be reached when fetch is cancelled
+        window.gtag("event", "received_teams_data", {
+          fetchedData: data,
+        });
+
+        setData(data);
         setIsLoading(false);
       } catch (e) {
         if (!abortController.signal.aborted) {
