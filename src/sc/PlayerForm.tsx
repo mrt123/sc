@@ -25,7 +25,11 @@ const isFormComplete = (stats: PlayerFormStats) => {
 
 const reportDelayedEvent = (formData: PlayerFormStats): number => {
   return window.setTimeout(() => {
-    window.gtag("event", "user_completed_host_player_form", { formData });
+    window.gtag("event", "user_completed_host_player_form", {
+      playerName: formData.name,
+      playerWins: formData.wins,
+      playerLosses: formData.losses,
+    });
   }, 2000);
 };
 

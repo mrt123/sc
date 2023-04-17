@@ -71,7 +71,7 @@ const useFetchTeams = ({
 
         // this line won't be reached when fetch is cancelled
         window.gtag("event", "received_teams_data", {
-          fetchedData: data,
+          fetchedData: JSON.stringify(data, null, 4),
         });
 
         setData(data);
