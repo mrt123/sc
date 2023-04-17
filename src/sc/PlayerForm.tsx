@@ -18,8 +18,14 @@ const initialState = {
   losses: "",
 };
 
+const isFormComplete = (stats: PlayerFormStats) => {
+  const { name, wins, losses } = stats;
+  return name && wins && losses;
+};
+
 const PlayerForm = ({ onChange }: Props) => {
   const [state, setState] = useState(initialState);
+
   const updateFormState: ChangeEventHandler<
     HTMLInputElement | HTMLTextAreaElement
   > = (event) => {
@@ -30,6 +36,14 @@ const PlayerForm = ({ onChange }: Props) => {
       wins: newState.wins ? Number(newState.wins) : null,
       losses: newState.losses ? Number(newState.losses) : null,
     };
+
+    if (isFormComplete(onChangeValueToPropagate))
+      window.gtag(
+        "event",
+        "user_completed_host_player_form",
+        onChangeValueToPropagate
+      );
+
     onChange(onChangeValueToPropagate);
   };
 
