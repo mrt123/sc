@@ -60,7 +60,7 @@ const DisplayTeam = ({ players, teamLabel }: DisplayTeamProps) => {
           <th style={rowStyle}>player</th>
           <th style={rowStyle}>wins</th>
           <th style={rowStyle}>losses</th>
-          <th style={rowStyle}>w/l ratio</th>
+          <th style={rowStyle}>W/L ratio</th>
           <th style={rowStyle}>estimated value</th>
         </tr>
       </thead>
