@@ -40,7 +40,7 @@ function HomePage() {
         onChange={(e) => setChatContents(e.target.value)}
         size="medium"
         style={{ margin: "20px 0" }}
-        placeholder="Copy/Paste all chat contents from your game server here."
+        placeholder="Copy/Paste all chat contents from your game here."
         focused
       />
       <PlayerCountWarning
