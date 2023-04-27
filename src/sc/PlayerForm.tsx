@@ -1,6 +1,7 @@
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { ChangeEventHandler, useState } from "react";
+import { reportUserEvent } from "../reporting/reporting";
 
 export interface PlayerFormStats {
   name: string | null;
@@ -25,7 +26,7 @@ const isFormComplete = (stats: PlayerFormStats) => {
 
 const reportDelayedEvent = (formData: PlayerFormStats): number => {
   return window.setTimeout(() => {
-    window.gtag("event", "user_completed_host_player_form", {
+    reportUserEvent(formData.name, "user_completed_host_player_form", {
       playerName: formData.name,
       playerWins: formData.wins,
       playerLosses: formData.losses,
