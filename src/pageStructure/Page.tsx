@@ -1,6 +1,7 @@
+import { Link } from "@mui/material";
 import React from "react";
 // import NavBar from "./NavBar";
-import { Link, Outlet } from "react-router-dom";
+import { Link as RouterLink, Outlet } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 
 const getPageStyle = (isBigScreen: boolean) => {
@@ -37,6 +38,7 @@ const headerStyle = {
   display: "flex",
   justifyContent: "space-between",
   fontSize: "36px",
+  color: "white",
 };
 
 const headerLinkStyle = {
@@ -50,8 +52,11 @@ const Page = () => {
   return (
     <div style={getPageStyle(isBigScreen)}>
       <header style={headerStyle}>
-        <Link to="/" style={headerLinkStyle}>
+        <RouterLink to="/" style={headerLinkStyle}>
           Starcraft Chat Extractor
+        </RouterLink>
+        <Link component={RouterLink} to="/pro-version" underline="none">
+          Pro Version
         </Link>
       </header>
       {/* <NavBar /> */}

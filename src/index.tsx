@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import Page from "./pageStructure/Page";
+import ComingSoon from "./pages/ComingSoon";
 
 const router = createHashRouter([
   {
@@ -13,6 +14,10 @@ const router = createHashRouter([
       {
         path: "/",
         element: <HomePage />,
+      },
+      {
+        path: "/pro-version",
+        element: <ComingSoon />,
       },
     ],
   },
